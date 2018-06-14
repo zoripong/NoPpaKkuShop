@@ -1,0 +1,7 @@
+CREATE TABLE [dbo].[product]
+(
+	[productNum] INT NOT NULL PRIMARY KEY,
+	[customerNum] INT NOT NULL,
+	[amountNum] INT NOT NULL,
+	[optionNum] INT NOT NULL
+)

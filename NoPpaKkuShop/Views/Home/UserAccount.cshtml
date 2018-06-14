@@ -1,0 +1,114 @@
+﻿@using NoPpaKkuShop.Models
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>UserAccount</title>
+</head>
+<style>
+    #pic {
+        width: 100px;
+        background-color: red;
+    }
+</style>
+<body>
+    <h1>노빠꾸쇼핑몰</h1>
+    <h3>잔액  36,000</h3>
+    <h3>현재 계약금  80,000</h3>
+    <h4>찜</h4>
+    <table border="1" solid cellpadding="10">
+        <tr>
+            <td>
+                no.
+            </td>
+            <td>
+                상품명
+            </td>
+            <td>
+                가격
+            </td>
+            <td>
+                D-day
+            </td>
+        </tr>
+        <tr>
+            <td>
+                1
+            </td>
+            <td>
+                임시
+            </td>
+            <td>
+                300
+            </td>
+            <td>
+                D-4
+            </td>
+        </tr>
+    </table>
+
+
+    <h4>등록 상품</h4>
+    <table border="1" solid cellpadding="10">
+        <tr>
+            <td>
+                no.
+            </td>
+            <td>
+                상품명
+            </td>
+            <td>
+                가격
+            </td>
+            <td>
+                D-day
+            </td>
+        </tr>
+        <tr>
+            <td>
+                1
+            </td>
+            <td>
+                임시
+            </td>
+            <td>
+                300
+            </td>
+            <td>
+                D-4
+            </td>
+        </tr>
+    </table>
+
+
+    <h4>뿌립니다</h4>
+    <table>
+        <tr>
+            <td>상품명</td>
+            <td>공구수량</td>
+            <td>가격</td>
+            <td>기간</td>
+        </tr>
+        @foreach (CRegisterPrd iter in ViewBag.thePrds)
+        {
+            <tr>
+                <td><img src="../Products/@iter.theHDDName" /></td>
+                <td>@iter.theProductName</td>
+                <td>@iter.theAmount</td>
+                <td>@iter.getCharge()</td>
+                <td>@iter.theStartDate ~ @iter.theEndDate</td>
+            </tr>
+        }
+    </table>
+
+
+    <div>
+        @Html.ActionLink("홈", "Index")
+    </div>
+</body>
+</html>

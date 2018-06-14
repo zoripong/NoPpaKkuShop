@@ -1,0 +1,85 @@
+﻿@using NoPpaKkuShop.Models
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<!--
+    제품 상세 페이지
+    -
+    -->
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DetailView</title>
+
+    <style>
+
+        td {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <br /><br />
+        <table border="0" width="800">
+            <tr>
+                <td><a href="@Url.Action("Index","Home")"><img src="../images/home.png" width="40"></a></td>
+                <td align="right"><a href="@Url.Action("UserAccount","Home")"><img src="../images/user.png" width="40"></a></td>
+            </tr>
+            @using (Html.BeginForm("Payment", "Home"))
+        {
+
+
+            <tr>
+                <td align="center"><img src="../../Include/Images/dress3.PNG" /></td>
+                <td valign="top">
+                    <div>
+                        <h2>꼬마뷔스티에 체크투피스</h2>
+                        <br />
+                        <h4>옵션</h4>
+                        <input type="radio" name="option" id="black" /> 검정
+                        <input type="radio" name="option" id="white" /> 화이트
+                        <input type="radio" name="option" id="green" /> 초록
+                    </div>
+                    <br />
+                    <div align="right">
+                        <h4>price : 2,000원</h4>
+                        &nbsp;&nbsp;&nbsp;
+                    </div>
+                    <br />
+                    <div align="right">
+                        <input type="submit" value="결제 가즈아~~" />
+                    </div>
+                </td>
+            </tr>
+    }
+            <tr>
+                <td colspan="2" bgcolor="lightpink">
+                    상세 설명 페이지
+                    사진이랑 설명이랑 번갈아가면서 띄우기
+
+                </td>
+            </tr>
+
+
+        </table>
+        <br /><br />
+
+
+            <div><a href="@Html.Action("Payment", "Home")">결제 가즈아</a></div>
+        <!--
+
+    <div>
+        @Html.ActionLink("결제가즈아", "Payment")
+        @Html.ActionLink("홈", "Index")
+        @Html.ActionLink("사용자계정", "UserAccount")
+    </div>
+        -->
+        <br /><br />
+
+    </center>
+</body>
+</html>

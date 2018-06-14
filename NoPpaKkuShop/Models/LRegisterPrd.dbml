@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="NoPpaKku" Class="LRegisterPrdDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=14.63.199.209,5433;Initial Catalog=NoPpaKku;Persist Security Info=True;User ID=devuri404" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="NoPpaKkuConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.TRegisterPrd" Member="TRegisterPrd">
+    <Type Name="TRegisterPrd">
+      <Column Name="uniqueID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="productName" Type="System.String" DbType="NChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="userUniqueID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="amount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="price" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="optionUniqueID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="explain" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="beforeCharge" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="afterCharge" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fileName" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="hddName" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="startDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="endDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

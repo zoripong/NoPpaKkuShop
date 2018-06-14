@@ -1,0 +1,56 @@
+﻿@model NoPpaKkuShop.Models.CMember
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SignIn</title>
+</head>
+<body>
+    <div>
+        @Html.ActionLink("홈", "Index")
+    </div>
+    @if(ViewBag.bFail == 1)
+    {
+        <p>중복된 아이디가 있습니다.</p>
+    }
+    @using (Html.BeginForm("SignIn", "Home"))
+    {
+        @Html.ValidationSummary();
+
+        <form method="post">
+            <table>
+            
+                <tr>
+                    <td>ID</td>
+                    <td>@Html.TextBoxFor(m => m.theID, new { style = "width:150px;" })</td>
+                    <td><input type="button" onclick="checkID()" value="중복확인" /></td>
+                </tr>
+                <tr>
+                    <td>PW</td>
+                    <td>@Html.TextBoxFor(m => m.thePW, new { style = "width:150px;", @type = "password" })</td>
+                </tr>
+                <tr>
+                    <td>PW확인</td>
+                    <td>@Html.TextBoxFor(m => m.thePW, new { style = "width:150px;", @type = "password" })</td>
+                </tr>
+                <tr>
+                    <td>휴대폰 번호</td>
+                    <td>@Html.TextBoxFor(m => m.thePhone, new { style = "width:150px;" })</td>
+                </tr>
+                <tr>
+                    <td>이메일</td>
+                    <td>@Html.TextBoxFor(m => m.theEMail, new { style = "width:150px;" })</td>
+                </tr>
+
+            </table>
+            <input type="submit" value="가입하기" />
+        </form>
+    }
+
+</body>
+</html>

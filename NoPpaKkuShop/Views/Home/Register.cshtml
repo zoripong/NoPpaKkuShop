@@ -1,0 +1,81 @@
+﻿@model NoPpaKkuShop.Models.CRegisterPrd
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <!-- create by Yuri-->
+    <meta name="viewport" content="width=device-width" />
+    <title>Register</title>
+</head>
+<body>
+    <img src="../../Include/Images/empty-box.png" />
+    <!--
+        <form>
+            <input type="text" placeholder="상품명" /><br />
+            <input type="datetime-local" placeholder="공구기간시작" /><br />
+            <input type="datetime-local" placeholder="공구기간끝" /><br />
+            <input type="number" placeholder="공구인원" min="1" /><br />
+            <input type="number" placeholder="선결제" min="0" step="1000" /><br />
+            <input type="number" placeholder="후결제" min="0" step="1000" /><br />
+        </form>
+    -->
+
+    @using (Html.BeginForm("Register", "Home", FormMethod.Post, new { enctype = "multipart/form-data" } ) )
+    {
+    <table>
+        <tr>
+            <td>상품명</td>
+            <td>@Html.TextBoxFor(x => x.theProductName, new { style = "width:150px;", required = "required" }) </td>
+        </tr>
+        <tr>
+            <td>공구기간 시작</td>
+            <td>@Html.TextBoxFor(model => model.theStartDate, new { @type = "date", required = "required" })</td>
+        </tr>
+        <tr>
+            <td>공구기간 끝</td>
+            <td>@Html.TextBoxFor(model => model.theEndDate, new { @type = "date" })</td>
+        </tr>
+
+        <tr>
+            <td>공구수량</td>
+            <td>@Html.TextBoxFor(model => model.theAmount, new { @type = "number", @min = "1", required = "required" })</td>
+        </tr>
+
+        <tr>
+            <td>선결제 금액</td>
+            <td>@Html.TextBoxFor(model => model.theBeforeCharge, new { @type = "number", @min = "0", @step = "1000", required = "required" })</td>
+        </tr>
+
+        <tr>
+            <td>후결제 금액</td>
+            <td>@Html.TextBoxFor(model => model.theAfterCharge, new { @type = "number", @min = "0", required = "required" })</td>
+        </tr>
+
+        <tr>
+            <td>상품 설명</td>
+            <td>@Html.TextBoxFor(model => model.theExplain)</td>
+        </tr>
+
+        <tr>
+            <td>이미지 </td>
+            <td>@Html.TextBoxFor(x => x.theFile, null, new { type = "file", @class = "input-file" })</td>
+        </tr>
+
+    </table>
+        <input type="submit" value="등록하기" />
+    }
+    @*옵션은 어떻게 하지 음음음음음음음*@
+    <p>
+        니나노 여기는 공구를 등록한 사용자에대한 정보가 담기는 곳이람니당 아당당당
+    </p>
+    <br />
+    <div>
+        @Html.ActionLink("사용자계정", "UserAccount");
+        @Html.ActionLink("홈", "Index");
+    </div>
+</body>
+</html>

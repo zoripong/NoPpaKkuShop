@@ -1,0 +1,32 @@
+﻿@model NoPpaKkuShop.Models.CLoginUser
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>LogIn</title>
+</head>
+<body>
+    <div>
+        @Html.ActionLink("회원가입", "SignIn")
+        @Html.ActionLink("계정찾기", "SearchAccount")
+    </div>
+    <form method="post">
+        <table>
+            <tr>
+                <td>ID</td>
+                <td>@Html.TextBoxFor(lu => lu.theID, new { style = "width:150px;" })</td>
+            </tr>
+            <tr>
+                <td>PW</td>
+                <td>@Html.TextBoxFor(lu => lu.thePW, new { style = "width:150px;", @type = "password" })</td>
+            </tr>
+        </table>
+        <input type="submit" value="로그인" />
+    </form>
+</body>
+</html>

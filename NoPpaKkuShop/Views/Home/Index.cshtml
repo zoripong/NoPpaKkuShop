@@ -1,0 +1,109 @@
+﻿@using NoPpaKkuShop.Models
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+        table{border-spacing:40px;}
+    </style>
+</head>
+<body>
+    <center>
+        <img src="../../Include/Images/logo.png" / > <br />
+
+        <table>
+            <tr>
+                <td>
+                    <img src="../../Include/Images/dress1.PNG" / ><br /><h4>자스민 쉬폰롱 프릴 OPS</h4><h6>16000원</h6><h6>공구 인원 : 4명</h6>
+                </td>
+                <td>
+                    <img src="../../Include/Images/dress2.PNG" / ><br /><h4>린넨 투피스 (반팔) </h4><h6>16500원</h6><h6>공구 인원 : 2명</h6>
+                </td>
+                <td>
+                    <img src="../../Include/Images/dress3.PNG" / ><br /><h4>꼬마뷔스티에 체크투피스</h4><h6>19500원</h6><h6>공구 인원 : 6명</h6>
+                </td>
+                <td>
+                    <img src="../../Include/Images/dress4.PNG" / ><br /><h4>매력만점 옥스포드셔츠</h4><h6>10400원</h6><h6>공구 인원 : 3명</h6>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="../../Include/Images/dress1.PNG" / ><br /><h4>자스민 쉬폰롱 프릴 OPS</h4><h6>16000원</h6><h6>공구 인원 : 4명</h6>
+                </td>
+                <td>
+                    <img src="../../Include/Images/dress2.PNG" / ><br /><h4>린넨 투피스 (반팔) </h4><h6>16500원</h6><h6>공구 인원 : 2명</h6>
+                </td>
+                <td>
+                    <img src="../../Include/Images/dress3.PNG" / ><br /><h4>꼬마뷔스티에 체크투피스</h4><h6>19500원</h6><h6>공구 인원 : 6명</h6>
+                </td>
+                <td>
+                    <img src="../../Include/Images/dress4.PNG" / ><br /><h4>매력만점 옥스포드셔츠</h4><h6>10400원</h6><h6>공구 인원 : 3명</h6>
+                </td>
+            </tr>
+        </table>
+
+        <div>
+            <br /><br />
+            @*로그인 전*@
+            @Html.ActionLink("로그인", "LogIn")
+            @Html.ActionLink("회원가입", "SignIn")
+
+            @*로그인 후*@
+            @Html.ActionLink("판매 등록", "Register")
+            @Html.ActionLink("사용자계정", "UserAccount")
+
+            @*항상*@
+            @Html.ActionLink("상품상세보기", "DetailView")
+        </div>
+    </center>
+    로그인 유저 :
+    @foreach (CLoginUser iter in ViewBag.theLoginUser)
+    {
+        @iter.theID
+        @iter.thePW
+    }
+    <table>
+        <tr>
+            <td>ID</td>
+            <td>PW</td>
+            <td>핸드폰 번호</td>
+            <td>이메일</td>
+        </tr>
+        @foreach (CMember iter in ViewBag.theMembers)
+        {
+            <tr>
+                <td>@iter.theID</td>
+                <td>@iter.thePW</td>
+                <td>@iter.thePhone</td>
+                <td>@iter.theEMail</td>
+            </tr>
+        }
+    </table>
+
+    <br />
+    <table>
+        <tr>
+            <td>상품명</td>
+            <td>공구수량</td>
+            <td>가격</td>
+            <td>기간</td>
+        </tr>
+        @foreach (CRegisterPrd iter in ViewBag.thePrds)
+        {
+            <tr>
+                <td><a href="@Url.Action("DetailView", "Home",  new { number = @iter.theUniqueID } )"><img src="../Products/@iter.theHDDName" /></a></td>
+                <td>@iter.theProductName</td>
+                <td>@iter.theAmount</td>
+                <td>@iter.getCharge()</td>
+                <td>@iter.theStartDate ~ @iter.theEndDate</td>
+            </tr>
+        }
+    </table>
+</body>
+</html>
